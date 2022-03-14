@@ -1,0 +1,109 @@
+POST /webhook/calculatehash HTTP/1.1
+Accept:              application/json, text/plain, */*
+Connection:          close
+Content-Length:      1280
+Content-Type:        application/json;charset=utf-8
+Host:                tradelenda.thesonaliagro.com
+User-Agent:          collect-core
+X-Collect-Signature: 745006f1a6dae8cfba272bc8a71ebf32a474a1f0a99e45347e13c3a4eb2a7f5f1e4e4ada9878813fe870572a0f4d26c712451621eef96fe352e7cc013bc59d44
+{
+    "event": "payment.success",
+    "payment": {
+        "id": 1035,
+        "ip": null,
+        "fee": 100,
+        "amount": 10000,
+        "status": "success",
+        "channel": "direct-debit",
+        "country": "NG",
+        "paid_at": "2021-08-16T16:55:38.154Z",
+        "currency": "NGN",
+        "metadata": null,
+        "initiator": "api",
+        "reference": "22eec856-35da-4b29-8459-8ec44ab3ea8b",
+        "charged_at": "2021-08-16T16:55:38.154Z",
+        "created_at": "2021-08-16T15:55:31.820Z",
+        "short_code": "SC_cksevonbk000u01p24ysm8sja",
+        "updated_at": "2021-08-16T15:55:38.094Z",
+        "description": "A Payment",
+        "failure_reason": null,
+        "payment_method": "ng_bank_payment"
+    },
+    "customer": {
+        "id": 49,
+        "code": "CUS_rgr2tea9tt",
+        "email": "sarwar.cse4@gmail.com",
+        "country": "NG",
+        "metadata": null,
+        "last_name": "Hossain",
+        "created_at": "2021-08-12T09:32:35.137Z",
+        "first_name": "Sarwar",
+        "updated_at": "2021-08-12T09:32:35.137Z",
+        "middle_name": null,
+        "phone_number": null
+    },
+    "bank_account": {
+        "id": 55,
+        "country": "NG",
+        "currency": "NGN",
+        "bank_name": "Ecobank Nigeria",
+        "is_active": true,
+        "signature": "SIG_d76afd6de606dac2337a161978ed9b9959b5a96543ae98e9842c4dedd7b53fae215359fba22e7c9f361b133f54ea57b0a0b3e390306f6cae96b30d0b50102434",
+        "created_at": "2021-08-15T19:29:16.592Z",
+        "is_default": false,
+        "updated_at": "2021-08-15T19:29:16.592Z",
+        "is_reusable": true,
+        "account_name": "Sarwar Hossain",
+        "authorization_code": "BA_0mv36r633gcvg9c",
+        "masked_account_number": "******1603"
+    }
+}
+
+{
+    "message": "Created payment successful",
+    "data": {
+        "id": 1086,
+        "amount": 10000,
+        "fee": 100,
+        "pass_fee": false,
+        "currency": "NGN",
+        "status": "pending",
+        "reference": "43da9711-0666-429e-8ba5-2eb107c9d010",
+        "ip": null,
+        "description": "A Payment",
+        "payment_method": "ng_bank_payment",
+        "channel": "direct-debit",
+        "paid_at": null,
+        "charged_at": null,
+        "created_at": "2021-08-18T05:44:40.833Z",
+        "updated_at": "2021-08-18T05:44:40.833Z",
+        "metadata": null,
+        "next_action": null,
+        "customer": {
+            "id": 49,
+            "first_name": "Sarwar",
+            "middle_name": null,
+            "last_name": "Hossain",
+            "email": "sarwar.cse4@gmail.com",
+            "phone_number": null,
+            "city": null,
+            "address": null,
+            "country": "NG",
+            "code": "CUS_rgr2tea9tt",
+            "profile_image": null,
+            "metadata": null
+        },
+        "bank_account": {
+            "id": 55,
+            "account_name": "Sarwar Hossain",
+            "masked_account_number": "******1603",
+            "authorization_code": "BA_0mv36r633gcvg9c",
+            "bank_name": "Ecobank Nigeria",
+            "status": "connected",
+            "is_active": true,
+            "is_default": false,
+            "created_at": "2021-08-15T19:29:16.592Z",
+            "updated_at": "2021-08-15T19:29:16.592Z"
+        }
+    }
+}

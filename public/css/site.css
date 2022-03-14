@@ -1,0 +1,1752 @@
+﻿                                    /***************************************Global Styles**********************************/
+                                    
+                                    .User_Name_con {
+                                        display: inline-block;
+                                    }
+                                    
+                                    .carrier_svg_con {
+                                        display: none;
+                                    }
+                                    
+                                    * {
+                                        padding: 0;
+                                        margin: 0;
+                                        box-sizing: border-box;
+                                    }
+                                    
+                                    body {
+                                        font-family: 'Roboto', sans-serif;
+                                        color: #262626 !important;
+                                        background-color: #E5E5E5;
+                                    }
+                                    /*Designs*/
+                                    
+                                    .bg-primary {
+                                        background-color: #24348B !important;
+                                        color: #FFFFFF !important;
+                                    }
+                                    
+                                    .bg-secondary {
+                                        background-color: #010C4D !important;
+                                        color: #FFFFFF !important;
+                                    }
+                                    
+                                    .bg-light {
+                                        background-color: #F8F8FA !important;
+                                        color: #181819 !important;
+                                    }
+                                    
+                                    .bg-danger {
+                                        background-color: #ED2E7E !important;
+                                        color: #FFFFFF !important;
+                                    }
+                                    
+                                    .bg-success {
+                                        background-color: #00BA88 !important;
+                                        color: #FFFFFF !important;
+                                    }
+                                    /**TYPOGRAPHY**/
+                                    
+                                    .text-primary {
+                                        color: #24348B !important;
+                                    }
+                                    
+                                    .text-primary-dark {
+                                        color: #0566C3 !important;
+                                    }
+                                    
+                                    .text-secondary {
+                                        color: #010C4D !important;
+                                    }
+                                    
+                                    .text-dark {
+                                        color: #262626 !important;
+                                    }
+                                    
+                                    .text-info {
+                                        color: #C6B417 !important;
+                                    }
+                                    
+                                    .text-warning {
+                                        color: #F4B740 !important;
+                                    }
+                                    
+                                    .text-error {
+                                        color: #ED2E7E !important;
+                                    }
+                                    
+                                    .text-danger {
+                                        color: #F40B0B !important;
+                                    }
+                                    
+                                    .text-success {
+                                        color: #00BA88 !important;
+                                    }
+                                    
+                                    .btn {
+                                        border-radius: 8px !important;
+                                        font-size: 13px !important;
+                                    }
+                                    
+                                    .btn-primary,
+                                    .btn-primary:active {
+                                        background-color: #24348B !important;
+                                        border: 2px solid #24348B !important;
+                                        color: #F7F7FC !important;
+                                    }
+                                    
+                                    .btn-secondary,
+                                    .btn-secondary:active {
+                                        color: #24348B !important;
+                                        border: 1px solid #24348B !important;
+                                        background-color: #ffffff !important;
+                                    }
+                                    
+                                    .btn-subtle,
+                                    .btn-subtle:hover,
+                                    .btn-subtle:active {
+                                        color: #24348B !important;
+                                        border: 2px solid #D6D8E7 !important;
+                                        background-color: #ffffff !important;
+                                    }
+                                    
+                                    .btn-text,
+                                    .btn-text:active {
+                                        color: #24348B !important;
+                                        background-color: transparent !important;
+                                    }
+                                    
+                                    .btn-primary:hover {
+                                        background-color: #0566C3 !important;
+                                        border-color: #0566C3 !important;
+                                    }
+                                    
+                                    .btn-secondary:hover {
+                                        color: #0566C4 !important;
+                                        border-color: #0566C4 !important;
+                                    }
+                                    
+                                    .btn-text:hover {
+                                        color: #0566C4 !important;
+                                        background-color: transparent !important;
+                                    }
+                                    
+                                    .btn-primary:focus {
+                                        box-shadow: 0 0 0 4px #B8C1EF;
+                                    }
+                                    
+                                    .btn-secondary:focus {
+                                        color: #24348B !important;
+                                        box-shadow: 0 0 0 4px #B8C1EF;
+                                    }
+                                    
+                                    .btn-subtle:focus {
+                                        box-shadow: 0 0 0 4px #EFF0F7;
+                                    }
+                                    
+                                    .btn-text:focus {
+                                        background-color: #EFF0F7 !important;
+                                        color: #24348B !important;
+                                    }
+                                    /**Disabled buttons**/
+                                    
+                                    .btn.disabled,
+                                    .btn:disabled {
+                                        opacity: 0.65 !important;
+                                    }
+                                    
+                                    .btn-primary:disabled {
+                                        background-color: #24348B !important;
+                                        border: 2px solid #24348B !important;
+                                        color: #F7F7FC !important;
+                                    }
+                                    
+                                    .btn-secondary:disabled {
+                                        color: #24348B !important;
+                                        border: 2px solid #24348B !important;
+                                        background-color: #ffffff !important;
+                                    }
+                                    
+                                    .btn-subtle:disabled {
+                                        color: #24348B !important;
+                                        border: 2px solid #D6D8E7 !important;
+                                        background-color: #ffffff !important;
+                                    }
+                                    
+                                    .btn-text:disabled {
+                                        color: #24348B !important;
+                                        background-color: transparent !important;
+                                    }
+                                    
+                                    .table td {
+                                        vertical-align: middle;
+                                    }
+                                    /********************************NAVIGATION**********************************/
+                                    
+                                    .sidebar-wrapper {
+                                        width: 248px;
+                                        height: 100%;
+                                        max-height: 100%;
+                                        position: fixed;
+                                        top: 0;
+                                        left: 0;
+                                        margin-left: 0;
+                                        z-index: 1052;
+                                        -webkit-transition: 0.5s;
+                                        transition: 0.5s;
+                                        overflow-x: hidden;
+                                        padding-bottom: 50px;
+                                    }
+                                    
+                                    @media (max-width:991px) {
+                                        .sidebar-wrapper {
+                                            width: 0;
+                                        }
+                                    }
+                                    
+                                    .sidebar-wrapper .closebtn {
+                                        position: absolute;
+                                        top: 0;
+                                        direction: ltr;
+                                        right: 15px;
+                                        font-size: 36px;
+                                    }
+                                    
+                                    .sidebar-wrapper .navbar {
+                                        padding-left: 24px !important;
+                                        padding-right: 24px !important;
+                                    }
+                                    
+                                    .sidebar-wrapper .navbar>.navbar-nav>hr {
+                                        margin-top: 45px;
+                                    }
+                                    
+                                    .sidebar-wrapper .navbar hr {
+                                        border-color: #E6E7E9;
+                                        width: 100%;
+                                    }
+                                    
+                                    .sidebar-wrapper .navbar a {
+                                        color: rgba(255, 255, 255, 0.7) !important;
+                                    }
+                                    
+                                    .sidebar-wrapper .navbar li.active>*,
+                                    .sidebar-wrapper .navbar li a:hover {
+                                        color: #FFFFFF !important;
+                                    }
+                                    
+                                    .sidebar-wrapper .brand {
+                                        font-weight: 900;
+                                        line-height: 21px;
+                                        font-size: 17.4777px;
+                                        margin-top: 12px;
+                                    }
+                                    
+                                    .sidebar-wrapper .user-profile {
+                                        background-color: #3B4EB5;
+                                        color: #FFFFFF;
+                                        width: 100%;
+                                        border-radius: 8px;
+                                        padding-top: 18px;
+                                        padding-bottom: 18px;
+                                        margin-top: 41px;
+                                    }
+                                    /***********************MAIN CONTENT PLACEHOLDER******************************/
+                                    
+                                    .dashb {
+                                        margin-left: 248px;
+                                    }
+                                    
+                                    #dashb_link {
+                                        color: white;
+                                        text-decoration: underline;
+                                    }
+                                    
+                                    .main {
+                                        margin-left: 248px;
+                                        transition: margin-left .5s;
+                                        padding: 16px;
+                                        padding-bottom: 50px;
+                                    }
+                                    
+                                    .page-title-bar h4 {
+                                        color: rgba(24, 24, 25, 0.9);
+                                    }
+                                    
+                                    .page-title-bar select {
+                                        width: auto !important;
+                                    }
+                                    
+                                    .main .go-back-group {
+                                        width: calc(100% - .3rem);
+                                        max-width: calc(100% - .3rem);
+                                    }
+                                    
+                                    .main .go-back {
+                                        font-size: 14px;
+                                        cursor: pointer;
+                                        margin-top: 17px;
+                                        margin-bottom: 23px;
+                                    }
+                                    
+                                    main .go-back-group>i {
+                                        margin-top: 17px;
+                                    }
+                                    
+                                    .card {
+                                        border-radius: 8px;
+                                    }
+                                    
+                                    .tooltip-inner {
+                                        color: #FFFFFF;
+                                        background: #24348B;
+                                        border-radius: 2px;
+                                    }
+                                    
+                                    .bs-tooltip-auto[x-placement^="bottom"] .arrow::before,
+                                    .bs-tooltip-bottom .arrow::before {
+                                        border-bottom-color: #24348B;
+                                    }
+                                    
+                                    .bs-tooltip-auto[x-placement^=top] .arrow::before,
+                                    .bs-tooltip-top .arrow::before {
+                                        border-top-color: #24348B;
+                                    }
+                                    /**********************************STYLES FOR RIGHT SIDE BAR*************************/
+                                    
+                                    .questns_links:link {
+                                        text-decoration: underline;
+                                    }
+                                    /**********************************STYLES FOR TABLE GRIDS*************************/
+                                    
+                                    .table thead {
+                                        border-radius: 8px !important;
+                                    }
+                                    
+                                    .table .thead-light th {
+                                        color: #6E6893;
+                                        background-color: #EEF0F7;
+                                        border-color: #EEF0F7;
+                                        font-size: 14px;
+                                        vertical-align: middle;
+                                    }
+                                    
+                                    .table tbody td .btn {
+                                        color: #0566C3;
+                                        border: 1px solid #0566C4;
+                                        border-radius: 3px !important;
+                                        vertical-align: middle;
+                                    }
+                                    
+                                    .pagination .page-item {
+                                        margin-right: 6px;
+                                    }
+                                    
+                                    .pagination .page-item:last-of-type {
+                                        margin-right: 0;
+                                    }
+                                    
+                                    .pagination .page-link {
+                                        border: 1px solid #24348B;
+                                        color: #24348B;
+                                        padding-left: 13px;
+                                        background-color: transparent;
+                                        padding-right: 13px;
+                                        border-radius: 3px;
+                                    }
+                                    /*************************STYLES FOR FORMS*************************/
+                                    
+                                    label {
+                                        color: #000000;
+                                    }
+                                    
+                                    .form-control {
+                                        color: #4E4B66;
+                                        background-color: #F7F9FC;
+                                        border: 1px solid #CCC3D9;
+                                        border-radius: 10px;
+                                    }
+                                    
+                                    .form-control:focus {
+                                        color: #4E4B66 !important;
+                                        background-color: #FCFCFC !important;
+                                        border-color: #14142B !important;
+                                        box-shadow: none !important;
+                                    }
+                                    
+                                    .form-control::placeholder {
+                                        color: #6E7191!important;
+                                    }
+                                    
+                                    .form-control::-ms-input-placeholder {
+                                        /* Microsoft Edge */
+                                        color: #6E7191 !important;
+                                    }
+                                    
+                                    input[type=date]::-webkit-datetime-edit {
+                                        color: #6E7191 !important;
+                                    }
+                                    
+                                    .form .btn {
+                                        padding-left: 35px;
+                                        padding-right: 35px;
+                                    }
+                                    
+                                    @media (max-width:768px) {
+                                        .form .btn {
+                                            padding-left: 15px;
+                                            padding-right: 15px;
+                                        }
+                                        .ext_con {
+                                            padding-left: 0px;
+                                            padding-right: 0px;
+                                        }
+                                    }
+                                    
+                                    .form .btn-secondary,
+                                    .form .btn-secondary:active {
+                                        background-color: #E5E5E5 !important;
+                                    }
+                                    /********************STYLES FOR CUSTOM UPLOAD*******************/
+                                    
+                                    .drag-area {
+                                        border: 2px dashed #B8C1EF;
+                                        height: 190px;
+                                        width: 100%;
+                                        border-radius: 8px;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        flex-direction: column;
+                                    }
+                                    
+                                    .drag-area.active {
+                                        border: 2px solid #B8C1EF;
+                                    }
+                                    
+                                    .drag-area .icon {
+                                        font-size: 40px;
+                                        color: #24348B;
+                                    }
+                                    
+                                    .drag-area p {
+                                        font-size: 18px;
+                                        text-align: center;
+                                        font-weight: 500;
+                                        color: #595959;
+                                        margin-bottom: 7px;
+                                    }
+                                    
+                                    .drag-area .upload-format-wrapper {
+                                        font-size: 14px;
+                                        font-weight: 400;
+                                        margin-bottom: 15px;
+                                    }
+                                    
+                                    .drag-area button {
+                                        font-size: 18px;
+                                        font-weight: 500;
+                                        border: none;
+                                        outline: none;
+                                        background: #fff;
+                                        color: #24348B;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                    }
+                                    
+                                    .drag-area img {
+                                        height: 100%;
+                                        width: 100%;
+                                        object-fit: cover;
+                                        border-radius: 5px;
+                                    }
+                                    /*****************STYLES FOR CUSTOM ALERT(S)*************************/
+                                    
+                                    .alert .closebtn {
+                                        position: absolute;
+                                        top: 18px;
+                                        direction: ltr;
+                                        right: 18px;
+                                        font-size: 30px;
+                                    }
+                                    
+                                    .alert .modal-content {
+                                        border-radius: 8px;
+                                    }
+                                    
+                                    .alert .modal-content .modal-body {
+                                        padding-top: 60px;
+                                        padding-bottom: 60px;
+                                    }
+                                    
+                                    .alert .modal-content .modal-body p {
+                                        width: 65%;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        margin-bottom: 30px;
+                                    }
+                                    
+                                    .alert .modal-content .modal-body .btn {
+                                        padding-right: 30px;
+                                        padding-left: 30px;
+                                    }
+                                    /***************MEDIA QUERIES FOR GLOBAL ELEMENTS/COMPONENTS THROUGH OUT THE MAIN SECTION OF ALL PAGES************/
+                                    
+                                    @media (min-width: 768px) {
+                                        .main .go-back-group {
+                                            width: calc(83.333334% + .5rem);
+                                            max-width: calc(83.333334% + .5rem);
+                                        }
+                                    }
+                                    
+                                    @media (max-width:991px) {
+                                        @media (max-width: 424px) {
+                                            .alert .modal-content .modal-body p {
+                                                width: 100%;
+                                            }
+                                            .alert .closebtn {
+                                                top: 15px;
+                                                right: 15px;
+                                            }
+                                        }
+                                        @media (max-width:520px) {
+                                            .page-title-bar {
+                                                flex-direction: column !important;
+                                                margin-bottom: 1rem !important;
+                                            }
+                                            .page-title-bar .actions {
+                                                margin-top: .5rem !important;
+                                            }
+                                        }
+                                        @media (min-width: 401px) and (max-width: 575px) {
+                                            form.trade-lender-form {
+                                                width: 80%;
+                                                margin-left: auto !important;
+                                                margin-right: auto !important;
+                                            }
+                                            @media (max-width: 470px) {
+                                                form.trade-lender-form {
+                                                    width: 90%;
+                                                }
+                                            }
+                                        }
+                                        @media (max-width: 580px) {
+                                            .form-row .col-sm-6 {
+                                                flex: 0 0 100%;
+                                                max-width: 100%;
+                                            }
+                                            .form-row .col-sm-6:first-of-type {
+                                                margin-bottom: 16px;
+                                            }
+                                        }
+                                        .main {
+                                            margin-left: 0 !important;
+                                        }
+                                        .dashb {
+                                            margin-left: 0 !important;
+                                        }
+                                    }
+                                    /******************************DASHBOARD PAGE*********************************/
+                                    
+                                    .loan-stats h4 {
+                                        font-size: 22px !important;
+                                    }
+                                    
+                                    @media (min-width:992px) and (max-width:1116px) {
+                                        .loan-stats h4 {
+                                            font-size: 20px !important;
+                                        }
+                                        @media (max-width:1056px) {
+                                            .loan-stats p {
+                                                font-size: 15px !important;
+                                            }
+                                            .loan-stats h4 {
+                                                font-size: 18px !important;
+                                            }
+                                        }
+                                    }
+                                    /******************************NOTIFICATION PAGE*********************************/
+                                    
+                                    .notification-item .card-body {
+                                        line-height: 17px;
+                                        color: #130F26;
+                                    }
+                                    
+                                    .notification-item .notif-status {
+                                        font-size: 12px;
+                                    }
+                                    
+                                    .notification-item .notif-status-success {
+                                        color: #00BA88;
+                                    }
+                                    
+                                    .notification-item .notif-status-error {
+                                        color: #ED2E7E;
+                                    }
+                                    
+                                    .notif-description {
+                                        color: #0566C4
+                                    }
+                                    /******************************GUARANTORS INDEX PAGE*********************************/
+                                    
+                                    table#guarantors {
+                                        color: #20212B;
+                                    }
+                                    
+                                    .search-group .form-control {
+                                        padding-right: 20px;
+                                        background-color: #FAF8FA;
+                                        border: 1px solid #E5E5E5;
+                                        background-color: #E5E5E5;
+                                        border: 1px solid #CCC3D9;
+                                    }
+                                    
+                                    .search-group .fa {
+                                        position: absolute;
+                                        top: .8rem;
+                                        right: 24px;
+                                        font-size: 13px;
+                                        color: #24348B;
+                                    }
+                                    
+                                    #guarantorView .card {
+                                        color: #130F26;
+                                        margin-bottom: .5rem;
+                                    }
+                                    
+                                    #guarantorView .card .card-title {
+                                        font-size: 13.5px;
+                                    }
+                                    
+                                    @media (min-width:576px) and (max-width:767px) {
+                                        #guarantorView .col-sm-6 {
+                                            flex: 0 0 calc(50% - 0.25rem);
+                                            max-width: calc(50% - 0.25rem);
+                                        }
+                                        #guarantorView>.col-sm-6:first-of-type {
+                                            margin-right: 0.5rem;
+                                        }
+                                    }
+                                    /******************************INTEGRATIONS INDEX PAGE*********************************/
+                                    
+                                    .integration-page-sub-heading {
+                                        color: #6E7191;
+                                        margin-top: 3px;
+                                        font-size: 15px;
+                                    }
+                                    
+                                    .integration-item.connected .card-body .unlink {
+                                        display: flex;
+                                        position: absolute;
+                                        justify-content: center;
+                                        top: 15px;
+                                        right: 20px;
+                                        width: 36px;
+                                        height: 36px;
+                                        border-radius: 50%;
+                                        background-color: #E4E9FF;
+                                        text-align: center;
+                                        color: #24348B;
+                                    }
+                                    
+                                    .integration-item.connected .card-body .unlink .fa {
+                                        align-self: center;
+                                    }
+                                    
+                                    .integration-item .card-body .brand-logo-container {
+                                        height: 82px;
+                                        max-height: 82px;
+                                        width: 82px;
+                                        max-width: 82px;
+                                        background-color: #F8F8FA;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        margin-top: 40px;
+                                        display: flex;
+                                        justify-content: center;
+                                        align-items: center;
+                                        overflow: hidden;
+                                    }
+                                    
+                                    .integration-item .card-body .brand-logo-container.collect-africa {
+                                        background-color: #3AB75D;
+                                        color: #FFFFFF
+                                    }
+                                    
+                                    .integration-item .card-body .brand-description {
+                                        color: #6E7191;
+                                        font-size: 12px;
+                                    }
+                                    
+                                    .integration-item .card-footer {
+                                        background-color: #FFFFFF;
+                                        border-top: none;
+                                        padding-bottom: 18px;
+                                        padding-top: 5px;
+                                    }
+                                    
+                                    .integration-item .card-footer .btn {
+                                        padding-top: 13px;
+                                        padding-bottom: 13px;
+                                        font-size: 16px !important;
+                                    }
+                                    
+                                    .integration-item.connected .card-footer .btn {
+                                        background-color: #B8C1EF;
+                                        color: #24348B;
+                                    }
+                                    
+                                    .integration-item.unconnected .card-footer .btn {
+                                        background-color: #24348B;
+                                        color: #FFFFFF;
+                                    }
+                                    
+                                    #addDebitCardModel.alert .modal-content .modal-body {
+                                        padding: 40px 30px;
+                                    }
+                                    
+                                    #addDebitCardModel.alert .modal-content .modal-body h5 {
+                                        color: #200E32;
+                                        margin-bottom: 13px !important;
+                                    }
+                                    
+                                    .alert .modal-content .modal-body .btn {
+                                        padding-right: 30px;
+                                        padding-left: 30px;
+                                    }
+                                    
+                                    @media (min-width:331px) and (max-width:575px) {
+                                        .integration-item {
+                                            width: 330px;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 580px) {
+                                        #addDebitCardModel .form-row .col-sm-6 {
+                                            flex: 0 0 50%;
+                                            max-width: 50%;
+                                        }
+                                        @media (min-width: 421px) and (max-width: 424px) {
+                                            #unlinkModal .modal-content .modal-body p {
+                                                flex: 0 0 85%;
+                                                max-width: 85%;
+                                            }
+                                        }
+                                    }
+                                    
+                                    @media (min-width: 450px) {
+                                        #unlinkModal .modal-content .modal-body p {
+                                            flex: 0 0 50%;
+                                            max-width: 50%;
+                                        }
+                                    }
+                                    /******************************PROFILE UPDATE PAGE*********************************/
+                                    
+                                    .brand-logo-top-container {
+                                        width: 70px;
+                                        height: 50px;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                    }
+                                    
+                                    .profile-picture-container {
+                                        width: 450px;
+                                        height: 100%;
+                                    }
+                                    
+                                    .profile-picture-container .upload-profile-picture-box {
+                                        background-color: #FFFFFF;
+                                        padding: 40px 20px;
+                                        padding-top: 30px;
+                                        border-radius: 1px solid #FFFFFF;
+                                        border-radius: 12px;
+                                    }
+                                    
+                                    .profile-picture-container .upload-profile-picture-box p {
+                                        font-size: 18px;
+                                        font-weight: 600;
+                                        color: #130F26;
+                                    }
+                                    
+                                    .profile-picture-container button {
+                                        width: 80%;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                    }
+                                    
+                                    .accountSetup-navigation-container h4.page-title {
+                                        color: #181819;
+                                        margin-bottom: 30px;
+                                        font-size: 20px;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav {
+                                        position: relative;
+                                        width: 650px;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        justify-content: space-between;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .nav-item .nav-link {
+                                        position: relative;
+                                        font-size: 14px;
+                                        color: #6E7191;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .nav-item.active .nav-link {
+                                        color: #24348B;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .line-through {
+                                        width: 74%;
+                                        height: 1px;
+                                        position: absolute;
+                                        top: -2px;
+                                        display: block;
+                                        left: 13.45%;
+                                        background-color: #878787;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .nav-item .icon-container {
+                                        position: absolute;
+                                        top: -10px;
+                                        right: 45%;
+                                        z-index: 40;
+                                        padding: 2px;
+                                        padding-left: 3px;
+                                        font-size: 12px;
+                                        height: 17px;
+                                        width: 17px;
+                                        background-color: #ffffff;
+                                        border: 1px solid #878787;
+                                        border-radius: 50%;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .nav-item.active icon-container {
+                                        border-color: #24348B;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .nav-item i.fa {
+                                        vertical-align: top;
+                                        color: #4F4F4F;
+                                    }
+                                    
+                                    .accountSetup-navigation-bar .nav .nav-item.active i.fa {
+                                        color: #24348B;
+                                    }
+                                    
+                                    .profile-update-forms .tab-item {
+                                        display: none;
+                                    }
+                                    
+                                    .profile-update-forms .tab-item.active {
+                                        display: flex;
+                                    }
+                                    
+                                    .profile-update-forms .form-control {
+                                        color: #4E4B66;
+                                        background-color: #FFFFFF;
+                                        border-radius: 10px;
+                                    }
+                                    
+                                    @media (min-width: 576px) {
+                                        .profile-update-forms button.btn-primary:not(.profile-update-forms #financialDetails button.btn-primary) {
+                                            width: 50% !important;
+                                        }
+                                    }
+                                    
+                                    @media (max-width:699px) {
+                                        @media (min-width: 401px) and (max-width: 575px) {
+                                            .profile-update-forms .tab-item {
+                                                width: 80%;
+                                                margin-left: auto !important;
+                                                margin-right: auto !important;
+                                            }
+                                            @media (max-width: 470px) {
+                                                .profile-update-forms .tab-item {
+                                                    width: 90%;
+                                                }
+                                            }
+                                        }
+                                        .accountSetup-navigation-bar .nav {
+                                            width: 500px;
+                                        }
+                                        .accountSetup-navigation-bar .nav .nav-item .nav-link {
+                                            font-size: 12px;
+                                        }
+                                        .accountSetup-navigation-bar .nav .line-through {
+                                            width: 69.5%;
+                                            left: 15.8%;
+                                        }
+                                    }
+                                    
+                                    @media (max-width:521px) {
+                                        .profile-picture-container {
+                                            width: 400px;
+                                            height: 263px;
+                                        }
+                                        .profile-picture-container button {
+                                            width: 100%;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        }
+                                        .accountSetup-navigation-bar .nav {
+                                            width: 400px;
+                                            justify-content: center;
+                                        }
+                                        .accountSetup-navigation-bar .nav .nav-item .nav-link {
+                                            font-size: 10px;
+                                        }
+                                        .accountSetup-navigation-bar .nav .line-through {
+                                            width: 59.5%;
+                                            left: 20.5%;
+                                        }
+                                    }
+                                    
+                                    @media (max-width:420px) {
+                                        .profile-picture-container {
+                                            width: 100%;
+                                        }
+                                        .profile-picture-container .upload-profile-picture-box {
+                                            background-color: transparent;
+                                            padding: 0 0;
+                                        }
+                                        .profile-picture-container .upload-profile-picture-box .drag-area {
+                                            background-color: #FFFFFF;
+                                        }
+                                        .accountSetup-navigation-bar .nav {
+                                            width: 100%;
+                                            flex-wrap: nowrap;
+                                            margin-left: 0;
+                                            margin-right: 0;
+                                        }
+                                        .accountSetup-navigation-bar .nav .nav-item {
+                                            text-align: center;
+                                        }
+                                        .accountSetup-navigation-bar .nav .nav-item .icon-container {
+                                            font-size: 10px;
+                                        }
+                                        .accountSetup-navigation-bar .nav .line-through {
+                                            width: 63.5%;
+                                            left: 18%;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 768px) {
+                                        .right_siderbar {
+                                            padding-left: 0px;
+                                        }
+                                        .loan_history_div {
+                                            margin-bottom: 10px;
+                                        }
+                                    }
+                                    
+                                    @media (min-width: 576px) {
+                                        .container_con {
+                                            max-width: 100%;
+                                        }
+                                    }
+                                    /************************************* LOAN INDEX PAGE ****************************************/
+                                    
+                                    .loan-grid-container {
+                                        background-color: #FFFFFF;
+                                        border: 1px solid #EDEBF9;
+                                        border-radius: 8px;
+                                        padding: 20px 25px 35px;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar {
+                                        display: flex;
+                                        justify-content: space-between;
+                                        align-items: flex-start;
+                                        position: relative;
+                                        height: 50px;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar::after {
+                                        content: "";
+                                        position: absolute;
+                                        background-color: #EDEBF9;
+                                        height: 2px;
+                                        width: 85%;
+                                        top: 100%;
+                                        left: 3%;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav {
+                                        align-self: center
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item:first-of-type a {
+                                        padding-left: 0;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item a {
+                                        position: relative;
+                                        font-size: 14px;
+                                        color: #94979B;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item.active a,
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item a:hover {
+                                        color: #24348B;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item.active a::before,
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item a:hover:before {
+                                        content: "";
+                                        position: absolute;
+                                        background-color: #24348B;
+                                        height: 2px;
+                                        width: calc(92% - 32px);
+                                        bottom: -8px;
+                                        z-index: 30;
+                                        left: 18%;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item:first-of-type a::before {
+                                        width: calc(87% - 32px);
+                                        /* left: 21%; */
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .nav .nav-item:last-of-type a::before {
+                                        /* width: calc(92% - 32px); */
+                                        left: 21%;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .dropdown-nav {
+                                        display: none;
+                                        width: 200px;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .dropdown-nav .form-control {
+                                        background: #FFFFFF;
+                                        color: #14142B;
+                                        border: 1px solid #EDEBF9;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .search-group {
+                                        position: relative;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .search-group .fa {
+                                        right: 13px;
+                                    }
+                                    
+                                    .loan-grid-container .loan-grid-navigation-bar .search-group .form-control,
+                                    .loan-grid-container .loan-grid-navigation-bar .dropdowhn-nav .form-control {
+                                        background-color: #FAF8FA;
+                                        border: 1px solid #E5E5E5;
+                                        color: #181819;
+                                    }
+                                    
+                                    .small-screen-search-box.search-group {
+                                        display: none;
+                                        position: relative;
+                                        margin-top: 22px;
+                                    }
+                                    
+                                    .small-screen-search-box.search-group .form-control {
+                                        background-color: #FAF8FA;
+                                        border: 1px solid #E5E5E5;
+                                        color: #A0A3BD;
+                                    }
+                                    
+                                    .loan-grid-container table {
+                                        margin-bottom: 1.5rem;
+                                    }
+                                    
+                                    .loan-grid-container table tr:last-of-type td {
+                                        border-bottom: 2px solid #dee2e6;
+                                        border-radius: 4px;
+                                    }
+                                    
+                                    @media (min-width: 992px) and (max-width:1020px) {
+                                        .loan-grid-container .loan-grid-navigation-bar .nav .nav-item a {
+                                            font-size: 12px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 767px) {
+                                        .loan-grid-container .loan-grid-navigation-bar::after {
+                                            content: none;
+                                        }
+                                        .loan-grid-container .loan-grid-navigation-bar .nav {
+                                            display: none;
+                                        }
+                                        .loan-grid-container .loan-grid-navigation-bar .dropdown-nav {
+                                            display: block;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 675px) {
+                                        .loan-grid-container table tr th:nth-child(3),
+                                        .loan-grid-container table tr th:nth-child(4),
+                                        .loan-grid-container table tr th:nth-child(5),
+                                        .loan-grid-container table tr td:nth-child(3),
+                                        .loan-grid-container table tr td:nth-child(4),
+                                        .loan-grid-container table tr td:nth-child(5) {
+                                            display: none;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 524px) {
+                                        @media (max-width: 520px) {
+                                            .loan-title-bar.page-title-bar {
+                                                flex-direction: row !important;
+                                                margin-bottom: 0 !important;
+                                            }
+                                            .loan-title-bar.page-title-bar .actions {
+                                                margin-top: 0 !important;
+                                            }
+                                        }
+                                        .loan-grid-container table tr th:nth-child(2),
+                                        .loan-grid-container table tr td:nth-child(2) {
+                                            display: none;
+                                        }
+                                        .loan-grid-navigation-bar .search-group {
+                                            display: none;
+                                        }
+                                        .small-screen-search-box.search-group {
+                                            display: block;
+                                        }
+                                        .loan-grid-container .loan-grid-navigation-bar .dropdown-nav {
+                                            width: 70%;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 400px) {
+                                        .loan-grid-container {
+                                            border-radius: 0;
+                                            margin-left: -16px;
+                                            margin-right: -16px;
+                                            padding-left: 16px;
+                                            padding-right: 16px;
+                                        }
+                                        .loan-grid-container .loan-grid-navigation-bar .dropdown-nav {
+                                            width: 85%;
+                                            margin-left: auto;
+                                            margin-right: auto;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 370px) {
+                                        .loan-grid-container .loan-grid-navigation-bar .dropdown-nav {
+                                            width: 100%;
+                                            margin-left: 0;
+                                            margin-right: 0;
+                                        }
+                                    }
+                                    /************************************* LOAN VIEW PAGE ****************************************/
+                                    
+                                    #loanView .card {
+                                        color: #130F26;
+                                        margin-bottom: .5rem;
+                                    }
+                                    
+                                    #loanView .card .card-title {
+                                        font-size: 13.5px;
+                                    }
+                                    
+                                    #loanView .card ul li::marker {
+                                        color: #130f26d3;
+                                    }
+                                    
+                                    #loanView .view-offer-letter-container {
+                                        display: none;
+                                        margin-top: 3.7rem;
+                                    }
+                                    
+                                    #loanView .view-offer-letter-container .btn-secondary {
+                                        background-color: #FCFCFC !important;
+                                    }
+                                    
+                                    @media (min-width:576px) and (max-width:767px) {
+                                        #loanView .col-sm-6 {
+                                            flex: 0 0 calc(50% - 0.25rem);
+                                            max-width: calc(50% - 0.25rem);
+                                        }
+                                        #loanView>.col-sm-6:first-of-type {
+                                            margin-right: 0.5rem;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 520px) {
+                                        .loan-view-title-bar.page-title-bar {
+                                            margin-bottom: 0 !important;
+                                        }
+                                    }
+                                    /************************************* LOAN CREATE PAGE ****************************************/
+                                    
+                                    form#createLoan .loan-eligibility-block,
+                                    form#createLoan .loan-eligibility-block-small-screen {
+                                        background-color: #FFFFFF;
+                                        height: 230px;
+                                        width: 100%;
+                                        border-radius: 5px;
+                                        display: flex;
+                                        align-items: center;
+                                        flex-direction: column;
+                                        margin-top: .5rem;
+                                    }
+                                    
+                                    form#createLoan .loan-eligibility-block-small-screen {
+                                        display: none;
+                                    }
+                                    
+                                    form#createLoan .loan-eligibility-block .icon-block,
+                                    form#createLoan .loan-eligibility-block-small-screen .icon-block {
+                                        margin-top: 1.3rem;
+                                    }
+                                    
+                                    form#createLoan .loan-eligibility-block h6,
+                                    form#createLoan .loan-eligibility-block-small-screen h6 {
+                                        font-size: 18px;
+                                    }
+                                    
+                                    form#createLoan .loan-eligibility-block .text-wrapper,
+                                    form#createLoan .loan-eligibility-block-small-screen .text-wrapper {
+                                        color: #6E7191;
+                                        font-size: 13px;
+                                        margin-top: 1.3rem;
+                                    }
+                                    
+                                    @media (max-width: 575px) {
+                                        form#createLoan.trade-lender-form {
+                                            width: 90%;
+                                            margin-left: auto !important;
+                                            margin-right: auto !important;
+                                        }
+                                        form#createLoan .loan-eligibility-block {
+                                            display: none;
+                                        }
+                                        form#createLoan .loan-eligibility-block-small-screen {
+                                            display: flex;
+                                            margin: 2.6rem 15px 0 15px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 400px) {
+                                        form#createLoan.trade-lender-form {
+                                            width: initial;
+                                            margin-left: -15px !important;
+                                            margin-right: -15px !important;
+                                        }
+                                    }
+                                    /************************************* LOAN OFFER LETTER PAGE ****************************************/
+                                    
+                                    #loanOfferLetter {
+                                        font-size: 14px;
+                                        color: #181819;
+                                    }
+                                    
+                                    #loanOfferLetter pre {
+                                        white-space: pre-line;
+                                        font-size: inherit;
+                                        font-family: inherit;
+                                    }
+                                    
+                                    #loanOfferLetter ol.condition-list {
+                                        list-style-position: inside;
+                                    }
+                                    
+                                    #loanOfferLetter ol.condition-list li {
+                                        margin-top: .5em;
+                                    }
+                                    
+                                    #loanOfferLetter .custom-control-label {
+                                        color: #181819;
+                                    }
+                                    
+                                    #loanOfferLetter .custom-control-label::before,
+                                    #loanOfferLetter .custom-control-label::after {
+                                        top: .1rem;
+                                    }
+                                    
+                                    @media (max-width:417px) {
+                                        #loanOfferLetter .director-signature-block {
+                                            flex-direction: column;
+                                            text-align: left!important;
+                                        }
+                                        #loanOfferLetter .director-signature-block section:last-child {
+                                            margin-top: 3rem;
+                                            margin-bottom: 2rem;
+                                        }
+                                    }
+                                    /************************************* ACCOUNT INDEX/VIEW PAGE ****************************************/
+                                    
+                                    .account-profile-image-container {
+                                        position: relative;
+                                        display: flex;
+                                        justify-content: center;
+                                    }
+                                    
+                                    .account-profile-image-container .profile-image-wrapper {
+                                        position: relative;
+                                        width: 102px;
+                                        height: 102px;
+                                        background-color: #FFFFFF;
+                                        border: 1px solid #ffffff;
+                                        border-radius: 50%;
+                                        /* overflow: hidden; */
+                                    }
+                                    
+                                    .account-profile-image-container .profile-image-wrapper .change-profile-image-wrapper {
+                                        position: absolute;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        width: 32px;
+                                        height: 32px;
+                                        background-color: #5F24B8;
+                                        border: 1px solid #FFFFFF;
+                                        bottom: -3px;
+                                        right: -3px;
+                                        border-radius: 50%;
+                                        z-index: 30;
+                                    }
+                                    
+                                    .account-profile-image-container .edit-profile-button-container,
+                                    .account-page-wrapper .edit-profile-button-container {
+                                        width: 140px;
+                                        height: 40px;
+                                    }
+                                    
+                                    .account-profile-image-container .edit-profile-button-container {
+                                        position: absolute;
+                                        width: 140px;
+                                        height: 40px;
+                                        right: 0;
+                                        bottom: 3%;
+                                    }
+                                    
+                                    .mobile-menu {
+                                        display: flex;
+                                        margin: 0 -15px 20px;
+                                        padding: 12px 15px;
+                                        justify-content: space-between;
+                                        align-items: center;
+                                        height: 50px;
+                                        box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+                                    }
+                                    
+                                    .mobile-menu .fa {
+                                        font-size: 24px;
+                                    }
+                                    
+                                    .account-profile-image-container .edit-profile-button-container .btn,
+                                    .account-page-wrapper .edit-profile-button-container .btn {
+                                        position: relative;
+                                        background-color: #FFFFFF;
+                                        color: #24348B;
+                                        border: 1px solid #E6E7E9;
+                                        text-align: left;
+                                    }
+                                    
+                                    .accountTabsContainer .tab-item:not(.accountTabsContainer .tab-item.active) {
+                                        display: none;
+                                    }
+                                    
+                                    .account-navigation-container .account-navigation-bar {
+                                        display: flex;
+                                        align-items: flex-end;
+                                        border-bottom: 1px solid #EDEBF9;
+                                        height: 55px;
+                                    }
+                                    
+                                    .account-navigation-container .account-navigation-bar .nav-link {
+                                        position: relative;
+                                        color: #94979B;
+                                    }
+                                    
+                                    .account-navigation-container .account-navigation-bar .nav-link.active,
+                                    .account-navigation-container .account-navigation-bar .nav-link:hover {
+                                        color: #24348B;
+                                    }
+                                    
+                                    .account-navigation-container .account-navigation-bar .nav-link.active::before,
+                                    .account-navigation-container .account-navigation-bar .nav-link:hover::before {
+                                        content: "";
+                                        position: absolute;
+                                        color: #24348B;
+                                        background-color: #24348B;
+                                        height: 2px;
+                                        width: 92%;
+                                        right: 5px;
+                                        bottom: -1.5px;
+                                    }
+                                    
+                                    #accountViewTabsContainer .tab-item .card {
+                                        color: #130F26;
+                                        margin-bottom: .5rem;
+                                    }
+                                    
+                                    @media (min-width:576px) {
+                                        #accountViewTabsContainer {
+                                            border-radius: 8px;
+                                        }
+                                    }
+                                    
+                                    @media (min-width: 768px) {
+                                        .accountTabsContainer {
+                                            max-width: 90%;
+                                            border: 1px solid #EDEBF9;
+                                            padding-bottom: 35px;
+                                        }
+                                        .account-profile-image-container {
+                                            max-width: 90%;
+                                        }
+                                        .account-navigation-container {
+                                            padding-left: 15px;
+                                            padding-right: 15px;
+                                        }
+                                    }
+                                    
+                                    @media (min-width: 1200px) {
+                                        .accountTabsContainer,
+                                        .account-profile-image-container {
+                                            max-width: 83%;
+                                            /* padding-left: 30px; */
+                                        }
+                                    }
+                                    
+                                    @media (min-width: 1700px) {
+                                        .accountTabsContainer,
+                                        .account-profile-image-container {
+                                            max-width: 1131px;
+                                        }
+                                    }
+                                    
+                                    @media (min-width:576px) and (max-width:767px) {
+                                        #accountViewTabsContainer {
+                                            padding-bottom: 35px;
+                                        }
+                                        #accountViewTabsContainer .tab-item .col-sm-6 {
+                                            flex: 0 0 calc(50% - 0.25rem);
+                                            max-width: calc(50% - 0.25rem);
+                                        }
+                                        #accountViewTabsContainer .tab-item>.col-sm-6:first-of-type {
+                                            margin-right: 0.5rem;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 575px) {
+                                        @media (min-width: 436px) {
+                                            #accountViewTabsContainer .tab-item > * {
+                                                width: 85%;
+                                                margin-left: auto;
+                                                margin-right: auto;
+                                            }
+                                        }
+                                        @media (max-width: 310px) {
+                                            .account-navigation-container .account-navigation-bar .nav-link {
+                                                font-size: 13px;
+                                            }
+                                        }
+                                        @media (max-width: 520px) {
+                                            .account-page-wrapper .page-title-bar {
+                                                flex-direction: row !important;
+                                            }
+                                        }
+                                        .account-page-wrapper {
+                                            background-color: #FFFFFF;
+                                            /*reseting the padding on the main element*/
+                                            margin: -30px -15px -50px;
+                                            padding: 0 15px 50px;
+                                        }
+                                        .account-page-wrapper .edit-profile-button-container {
+                                            position: relative;
+                                        }
+                                        #accountViewTabsContainer {
+                                            margin-left: -15px;
+                                            margin-right: -15px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 435px) {
+                                        .account-navigation-container .account-navigation-bar .nav {
+                                            justify-content: space-between;
+                                            flex-basis: 100%;
+                                        }
+                                    }
+                                    /******* @media resize for user_Name_con start**********/
+                                    
+                                    @media (max-width: 768px) {
+                                        .User_Name_con {
+                                            display: none;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 280px) {
+                                        .profilepic_con {
+                                            padding-left: 0px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 991px) {
+                                        .HomeAndProfilePage_PpImg {
+                                            padding-left: 0px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 280px) {
+                                        .HomeAndProfilePage_PpImg {
+                                            padding-right: 0px;
+                                        }
+                                    }
+                                    /******* @media resize for user_Name_con end**********/
+                                    
+                                    .save_btn {
+                                        border: 1.5px solid transparent;
+                                        padding: 0.5rem 1rem;
+                                        font-size: 0.9rem;
+                                        min-width: 64px;
+                                        box-sizing: border-box;
+                                        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+                                        font-family: Inter, sans-serif;
+                                        font-weight: 500;
+                                        line-height: 1.75;
+                                        border-radius: 5px;
+                                        text-transform: unset;
+                                        color: white;
+                                        border-color: #1123AB;
+                                        background-color: #1123AB;
+                                        outline: none;
+                                    }
+                                    
+                                    .save_btn_div {
+                                        text-align: right;
+                                    }
+                                    
+                                    @media (max-width: 991px) {
+                                        .container_con {
+                                            width: 100%;
+                                        }
+                                        .save_btn_div {
+                                            text-align: center;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 991px) {
+                                        .carrier_svg_con {
+                                            display: block;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 991px) {
+                                        .user-profile-img:hover {
+                                            cursor: pointer;
+                                        }
+                                    }
+                                    /************************************* ACCOUNT EDIT PAGE ****************************************/
+                                    
+                                    .accountTabsContainer .form-control {
+                                        color: #6E7191;
+                                        background-color: #FFFFFF;
+                                        border: 1px solid #CCC3D9;
+                                        border-radius: 10px;
+                                    }
+                                    
+                                    @media (min-width: 768px) {
+                                        #accountEditTabsContainer {
+                                            padding-bottom: 20px;
+                                        }
+                                        #accountEditTabsContainer .account-navigation-container {
+                                            padding-left: 15px;
+                                            padding-right: 15px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 320px) {
+                                        #accountEditTabsContainer.account-navigation-container {
+                                            padding-left: -15px;
+                                            padding-right: -15px;
+                                        }
+                                    }
+                                    /* .modal-content2 {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+} */
+                                    /* data-href="image-url" */
+                                    /******************************AUTHENTICATION PAGE*********************************/
+                                    
+                                    #wrapper {
+                                        padding-top: 4%;
+                                    }
+                                    
+                                    #wrapper .back {
+                                        margin-left: 16%;
+                                        ;
+                                    }
+                                    
+                                    .auth-wrapper {
+                                        width: 50%;
+                                        margin: auto;
+                                        background-color: #fff;
+                                        border-radius: 15px;
+                                        padding: 4% 0 4%;
+                                        box-shadow: 1px 2px 10px 0 rgb(0 0 0 / 10%);
+                                    }
+                                    
+                                    .auth-wrapper-2 {
+                                        padding: 2% 0;
+                                        margin-top: -1%;
+                                    }
+                                    
+                                    .auth-box {
+                                        width: 100%;
+                                        margin: auto;
+                                        padding: 0 7%;
+                                    }
+                                    
+                                    .panel-auth {
+                                        text-align: center;
+                                    }
+                                    
+                                    .panel-auth label {
+                                        font-size: large;
+                                        font-weight: bolder;
+                                    }
+                                    /* .panel-auth img {
+    height: 100%;
+    width: 100%;
+}
+ */
+                                    
+                                    .panel-auth-con {
+                                        text-align: left;
+                                        line-height: normal;
+                                    }
+                                    
+                                    .panel-auth-con label {
+                                        font-size: 14px;
+                                    }
+                                    
+                                    .img-con {
+                                        margin: auto;
+                                        height: 70px;
+                                        width: 70px;
+                                    }
+                                    
+                                    .content {
+                                        text-align: center;
+                                        margin-top: 20px;
+                                        font-size: 14px;
+                                    }
+                                    
+                                    .content-add-admin {
+                                        text-align: left;
+                                        margin-top: 10px;
+                                        font-size: 14px;
+                                    }
+                                    
+                                    .helper-text {
+                                        font-size: 14px;
+                                    }
+                                    
+                                    .row {
+                                        margin: 0px;
+                                        padding: 0px;
+                                    }
+                                    
+                                    .fancy-checkbox input[type="checkbox"]+span {
+                                        display: inline-block;
+                                        vertical-align: middle;
+                                        cursor: pointer;
+                                        position: absolute;
+                                        font-size: 12px;
+                                        margin-top: 2px;
+                                    }
+                                    
+                                    .fancy-checkbox input {
+                                        width: 18px;
+                                        height: 18px;
+                                        margin-right: 5px;
+                                        cursor: pointer;
+                                    }
+                                    /* .form-group input {
+    height: 60%;
+} */
+                                    
+                                    .form-con input {
+                                        width: 12%;
+                                        height: 2rem;
+                                        float: left;
+                                        margin-left: 5px;
+                                    }
+                                    
+                                    .form-auth-small {
+                                        margin-top: 20px;
+                                    }
+                                    
+                                    .bottom {
+                                        margin-top: 10px;
+                                        text-align: center;
+                                    }
+                                    
+                                    @media (max-width: 1440px) {
+                                        .auth-wrapper {
+                                            width: 50%;
+                                        }
+                                        .auth-box {
+                                            padding: 0 7%;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 1279px) {
+                                        .auth-wrapper {
+                                            width: 55%;
+                                        }
+                                        .auth-box {
+                                            padding: 0 7%;
+                                        }
+                                        .form-con input {
+                                            width: 11%;
+                                            height: 2rem;
+                                            float: left;
+                                            margin-left: 5px;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 1024px) {
+                                        .auth-wrapper {
+                                            width: 58%;
+                                        }
+                                        .auth-box {
+                                            padding: 0 5%;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 992px) {
+                                        .auth-wrapper {
+                                            width: 70%;
+                                        }
+                                        .auth-box {
+                                            padding: 0 3%;
+                                        }
+                                    }
+                                    
+                                    @media (max-width: 640px) {
+                                        .auth-wrapper {
+                                            width: 100%;
+                                            background-color: transparent;
+                                            border-radius: 0px;
+                                            box-shadow: none;
+                                        }
+                                        .auth-box {
+                                            padding: 0;
+                                        }
+                                        .form-con input {
+                                            width: 9%;
+                                            height: 2rem;
+                                            float: left;
+                                            margin-left: 5px;
+                                        }
+                                    }
