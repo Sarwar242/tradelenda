@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Offer Letter')
+@section('title', '|| Offer Letter')
 @section('content')
 
 @include('pages.aside')
@@ -24,8 +24,8 @@
             <div class="brand" style="float:right" >
                 <img src="https://res.cloudinary.com/trade-lenda/image/upload/v1628132872/landing_page_pic/Group_11434_2_umfio2.png" class="img-fluid" alt="Tradelenda Logo" style="display: inline-block;">
             </div>
-       
-        <section class="col-md-10">  
+
+        <section class="col-md-10">
         <br>
         <br>
         <br>
@@ -39,12 +39,12 @@
             <h6 class="font-weight-bold">Attention: {{$loan->user->director}}, MD/CEO</h6>
             <p class="mt-3">Dear Sir,</p>
             <h6 class="font-weight-bold mt-3">
-                OFFER FOR {{strtoupper($loan->reason)}} FINANCE FACILITY OF N{{number_format($loan->amount)}} 
+                OFFER FOR {{strtoupper($loan->reason)}} FINANCE FACILITY OF N{{number_format($loan->amount)}}
                 (@php $f = new NumberFormatter("en", \NumberFormatter::SPELLOUT);
                 $f->setTextAttribute(\NumberFormatter::DEFAULT_RULESET, "%spellout-numbering-verbose");
                 echo strtoupper($f->format($loan->amount));
-        @endphp ONLY)       
-               
+        @endphp ONLY)
+
             </h6>
             <p>
                 Sequel to your application for a working capital facility, we are pleased to inform you that the Manager of Tradelenda has approved the request under the following terms and conditions:
@@ -80,11 +80,11 @@
                 <span class="h6">PRICING:</span> {{$loan->interest}}% monthly interest
             </p>
                 @else
-                <p> 
+                <p>
                     <span class="h6">PRICING:</span> ₦{{number_format($loan->amount)}}  profit mark-up
                 </p>
-             @endif  
-            
+             @endif
+
             <p>
                 <span class="h6">PAYABLE TO ACCOUNT:</span> Trade Lenda Com. Ltd.
             </p>

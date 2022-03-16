@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use App\Loans;
 use Auth;
@@ -15,54 +16,11 @@ use Validator;
 
 class AccountController extends Controller
 {
-    public function acct(){
-
-         return view('pages.editprofile');
-     }
-
-     public function acctview(){
-        $accdata =auth()->user();
-        if(is_null(auth()->user()->user_image)){
-            return redirect()->route('editprofile.page');
-        }else{
-            return view('pages.account')->with('accdata',$accdata);
-        }
-
-     }
-
-     public function card(){
-
-        return view('pages.test');
-    }
-
-
-    public function profili(){
-
-        return view('pages.profile');
-    }
-
-    public function personalinfo0(){
-
-        return view('pages.personalinfo');
-    }
-
-
-    public function businessinfo0(){
-
-        return view('pages.businessinfo');
-    }
-
-    public function financialinfo0(){
-
-        return view('pages.financialinfo');
-    }
-
-
-
     public function personalupdate(Request $request){
         $this->validate($request,[
             'email'               => 'required|email',
-            'name'                => 'nullable|string',
+            'phone_no'            => 'nullable',
+            'user_image'          => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
             'title'               => 'nullable|string',
             'first_name'          => 'nullable|string',
             'last_name'           => 'nullable|string',
@@ -82,15 +40,11 @@ class AccountController extends Controller
             'wdymtta'             => 'nullable|string',
             'dependents'          => 'nullable|string',
             'edu_level'           => 'nullable|string',
-
         ]);
-        $user = User::findOrFail(Auth::id());
+        $user = auth('api')->user();
+
         if(request()->has('email'))
             $user->email =$request->email;
-        if(request()->has('name'))
-            $user->email =$request->email;
-
-
         $user->title =$request->title;
         $user->first_name =$request->first_name;
         $user->last_name =$request->last_name;
@@ -114,6 +68,19 @@ class AccountController extends Controller
         $user->dependents =$request->dependents;
         $user->edu_level =$request->edu_level;
         $user->save();
+
+
+        try {
+            if ($request->hasFile('user_image')){
+                $path = $request->file('user_image')->store('profile_image', 's3');
+                Storage::disk('s3')->setVisibility($path, 'public');
+                $user->public_id=basename($path);
+                $user->user_image =Storage::disk('s3')->url($path);
+                $user->save();
+            }
+        }catch (\Throwable $th) {
+           info($th);
+        }
         $verified = false;
         if(!is_null($user->email_verified_at)){
             $verified=true;
@@ -127,13 +94,15 @@ class AccountController extends Controller
 
     }
 
-    public function update(Request $request){
+    public function businessUpdate(Request $request){
         $this->validate($request,[
             'business_type'       => 'nullable|string',
             'business_name'       => 'nullable|string',
             'director'            => 'nullable|string',
             'secretary'           => 'nullable|string',
             'registered'          => 'nullable|boolean',
+            'women_led'           => 'nullable|boolean',
+            'sharia_com'          => 'nullable|boolean',
             'rc_num'              => 'nullable|string',
             'establishment_date'  => 'nullable|string',
             'business_address'    => 'nullable|string',
@@ -152,9 +121,14 @@ class AccountController extends Controller
             'tin'                 => 'nullable|string',
             'b_id_type'           => 'nullable|string',
             'b_id_num'            => 'nullable|string',
+            'customer_id'         => 'nullable|string',
+            'seal'                => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
+            'cac7'                => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
+            'cac2'                => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
+            'cac_certificate'     => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
         ]);
 
-        $user = User::findOrFail(Auth::id());
+        $user = auth('api')->user();
         if(request()->has('email'))
             $user->email =$request->email;
         if(request()->has('name'))
@@ -165,6 +139,8 @@ class AccountController extends Controller
         $user->business_name =$request->business_name;
         $user->director =$request->director;
         $user->secretary =$request->secretary;
+        $user->women_led =$request->women_led;
+        $user->sharia_com =$request->sharia_com;
         $user->registered =$request->registered;
         if($request->rc_num==0)
             $user->rc_num = "";
@@ -192,20 +168,67 @@ class AccountController extends Controller
         $user->b_id_type =$request->b_id_type;
         $user->b_id_num =$request->b_id_num;
 
-
-
-        /* $user->bank_name =$request->bank_name;
-        $user->bank_account_name =$request->bank_account_name;
-        $user->bank_account_number =$request->bank_account_number;
-        $user->has_online_banking =$request->has_online_banking;
-        $user->last_loan_period =$request->last_loan_period;
-        $user->loan_amount =$request->loan_amount;  */
         $user->save();
-        // dd($user);
+        try {
+            if ($request->hasFile('seal')) {
+                $path = $request->file('seal')->store('seals', 's3');
 
-        return redirect()->route('profile.page')->with('success','Account has been successfully Updated!');
+                Storage::disk('s3')->setVisibility($path, 'public');
+                $user->public_seal=basename($path);
+                $user->seal = Storage::disk('s3')->url($path);
+                $user->save();
+            }
+        }catch (\Throwable $th) {
+            info($th);
+         }
 
-        //   return response()->json(['error'=>$validator->errors()->all()]);
+        try {
+            if ($request->hasFile('cac7')) {
+                $path = $request->file('cac7')->store('cac7', 's3');
+
+                Storage::disk('s3')->setVisibility($path, 'public');
+                $user->public_id_cac7=basename($path);
+                $user->cac7 = Storage::disk('s3')->url($path);
+                $user->save();
+            }
+        } catch (\Throwable $th) {
+            info($th);
+        }
+
+        try {
+            if ($request->hasFile('cac2')) {
+                $path = $request->file('cac2')->store('cac2', 's3');
+
+                Storage::disk('s3')->setVisibility($path, 'public');
+                $user->public_id_cac2=basename($path);
+                $user->cac2 = Storage::disk('s3')->url($path);
+                $user->save();
+            }
+
+        } catch (\Throwable $th) {
+            info($th);
+        }
+        try {
+            if ($request->hasFile('file')) {
+                $path = $request->file('file')->store('cac_certificates', 's3');
+
+                Storage::disk('s3')->setVisibility($path, 'public');
+                $user->public_id_cac_certificate=basename($path);
+                $user->cac_certificate = Storage::disk('s3')->url($path);
+                $user->save();
+            }
+        } catch (\Throwable $th) {
+            info($th);
+        }
+
+        $response = [
+            'success' => true,
+            'verified' => $user->email_verified_at? true:false,
+            'user' => $user,
+        ];
+        return response($response, 200);
+
+
     }
 
     public function financialupdate(Request $request){

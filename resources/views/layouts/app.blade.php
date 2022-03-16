@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 
 
-    <title>Trade Lenda||@yield('title')</title>
+    <title>Trade Lenda @yield('title')</title>
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="{{ URL::to('css/bootstrap.min.css') }}"/>

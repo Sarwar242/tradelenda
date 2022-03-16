@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Guarantor')
+@section('title', '|| Guarantor')
 @section('content')
 
 @include('pages.aside')

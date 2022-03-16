@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Profile')
+@section('title', '|| Profile')
 @section('content')
 
 @include('pages.aside')
@@ -28,7 +28,7 @@
         <p style="padding: 5px 15px; color: white; font-size: 0.75rem;">Your profile is incomplete. <a href="{{url('/profile')}}" id="dashb_link">Click to complete your profile</a></p>
     </div>
 @else
-@endif   
+@endif
 </div>
 
 <main class="main">
@@ -71,7 +71,7 @@
                      <span><img src="../../images/edit-profile-icon.png" alt="Edit profile icon"/></span>
                 </a>
             </div>
-        
+
 
         <section id="accountViewTabsContainer" class="accountTabsContainer bg-white mt-4">
             <section class="account-navigation-container mb-4">

@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title', 'Dashboard')
+@section('title', '|| Profile')
 @section('content')
 
 @include('pages.aside')
 
 <link href="css/site_style_file.css" rel="stylesheet"/>
-    
+
 
 <div class="dashb">
     <div class="container container_con" style="background-color: white; padding: 15px 5px 10px;">
@@ -31,10 +31,10 @@
         <p style="padding: 5px 15px; color: white; font-size: 0.75rem;">Your profile is incomplete. <a href="{{url('/profile')}}" id="dashb_link">Click to complete your profile</a></p>
     </div>
 @else
-@endif   
+@endif
 </div>
 
-    
+
         <main class="main">
              <!-- Scripts -->
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
@@ -56,8 +56,8 @@
                                                     <path d="M17.415 20.416V0a9.881 9.881 0 017.218 2.99 9.877 9.877 0 012.99 7.217 9.878 9.878 0 01-2.99 7.218 9.878 9.878 0 01-7.218 2.991zm0 0" fill="#35B44A"></path>
                                                     <path d="M35.361 35.094a7.036 7.036 0 01-2.09 5.324 7.524 7.524 0 01-5.386 1.965H17.408V23.714h.271a8.891 8.891 0 002.736-.442 9.873 9.873 0 002.236-.985c.649-.415 1.231-.79 1.729-1.114a3.1 3.1 0 011.659-.7 8.3 8.3 0 013.061.554 7.367 7.367 0 012.4 1.507 9.472 9.472 0 011.669 2.175 13.3 13.3 0 011.107 2.511 21.121 21.121 0 01.659 2.693 25.293 25.293 0 01.343 2.678c.053.807.082 1.649.083 2.503zm0 0" fill="#24348B"></path>
                                                 </svg>
-                                       
-                                                
+
+
                                             </svg>
                                             <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="font-size: 2.2rem;">
                                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21">
@@ -133,15 +133,15 @@
                                 </div>
                             </div>
                         </section>
-    
-    
-    
+
+
+
                         <section class="grid gap-8 grid-cols-1 xl:grid-cols-8">
                             <div class="xl:col-span-5">
                                 <h5 class="MuiTypography-root !font-semibold MuiTypography-h5 MuiTypography-colorTextPrimary">Having Issues Uploading Documents?</h5>
                                 <p class="MuiTypography-root !mb-8 MuiTypography-body1">Here’s a video guide that shows how you can upload documents</p>
                                 <div style="position: relative; padding-bottom: 51.0938%; height: 0px;">
-    
+
                                     <iframe src="../../video/i was flunking.mp4" frameborder="0" allowfullscreen="" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;">
                     </iframe>
                                 </div>
@@ -180,9 +180,9 @@
                 </main>
             </main>
         </main>
-    
-    
-    
+
+
+
         <!--- footer div start-->
        {{--  <div style="clear: both; position: relative; background-color: red;">
             <div id="div_display">
@@ -257,26 +257,26 @@
             </div>
         </div> --}}
         <!--- footer div end-->
-    
-    
-    
+
+
+
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.bundle.min.js"></script>
         <script src="js/site.js"></script>
         <script>
             /* show and hid more link dropdown script begins*/
-    
+
             let btn = document.getElementById("clickmore")
             let div_c = document.getElementById("div_display")
             btn.addEventListener("click", () => {
                 if (div_c.style.display === "block") {
                     div_c.style.display = "none";
-    
+
                 } else {
                     div_c.style.display = "block"
                 }
             })
-    
+
             /* show and hid more link dropdown script ends*/
         </script>
     </main>

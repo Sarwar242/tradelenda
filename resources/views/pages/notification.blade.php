@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Notifications')
+@section('title', '|| Notifications')
 @section('content')
 
 @include('pages.aside')
@@ -28,7 +28,7 @@
         <p style="padding: 5px 15px; color: white; font-size: 0.75rem;">Your profile is incomplete. <a href="{{url('/profile')}}" id="dashb_link">Click to complete your profile</a></p>
     </div>
 @else
-@endif   
+@endif
 </div>
 
 <main class="main">

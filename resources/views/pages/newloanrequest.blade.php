@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Loan Request')
+@section('title', '|| Loan Request')
 @section('content')
 
 @include('pages.aside')
