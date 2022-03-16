@@ -100,6 +100,12 @@
                     <h6 class="card-text font-weight-bold mb-0">{{$memba->wic}}</h6>
                 </div>
             </div>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title mb-1">Phone Number</p>
+                    <h6 class="card-text font-weight-bold mb-0">{{$memba->phoneno}}</h6>
+                </div>
+            </div>
         </section>
     </div>
 

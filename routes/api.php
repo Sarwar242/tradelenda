@@ -2,9 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\RegisterapiController;
-use App\Http\Controllers\Auth\LoginapiController;
-use App\Http\Controllers\AccountapiController;
+use App\Http\Controllers\API\Auth\RegisterController;
+use App\Http\Controllers\API\Auth\VerificationController;
+use App\Http\Controllers\API\Auth\LoginController;
+use App\Http\Controllers\API\AccountController;
 use App\User;
 
 
@@ -26,18 +27,20 @@ use App\User;
 
 // Public routes
 
-    Route::post('/register', [RegisterapiController::class, 'register']);
-Route::post('/login', [LoginapiController::class, 'login']);
-Route::get('/verify/code/send', 'Auth\VerificationController@resend_code')->name('verification.code.resend');
-Route::post('/verify/code', 'Auth\VerificationController@verify_code')->name('verification.code.verify');
-
+Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/login', [LoginController::class, 'login']);
+Route::group(['middleware' => 'jwt.verify'], function(){
+    Route::post('/verify/code/send', [VerificationController::class, 'resend_code']);
+    Route::post('/verify/code', [VerificationController::class, 'verify_code']);
+    Route::post('/logout', [LoginController::class, 'logout']);
+});
 
 // Protected routes
 
 /* Route::get('/kyc/personal' , [
     'uses' => 'AccountapiController@personalinfo0',
     'as' => 'personalinfo.page',
-    
+
 
 ]); */
 
@@ -94,22 +97,11 @@ Route::post('/financialinfo/connectokra' , [
 
 ]);
 
-// Protected routes
-Route::group(['middleware' => ['auth:sanctum']], function () {
-     
- Route::put('/kyc/personal/update', [AccountapiController::class, 'personalupdate']);
+ Route::put('/kyc/personal/update', [AccountController::class, 'personalupdate']);
 
-/* Route::put('/kyc/personal/update{id}' , [
-    'uses' => 'AccountapiController@personalupdate',
-    'as' => 'kyc.personal.update',
-]);
-    */
-
-    Route::post('/logout', [AuthController::class, 'logout']);
-});
 
 /** **********************End */
-/* 
+/*
 //login user
 Route::post('/login', [ApiController::class, 'login']);
 //using middleware

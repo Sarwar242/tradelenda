@@ -6,6 +6,43 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/css/intlTelInput.css'>
+  
+
+<style>
+    .field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+
+
+.multi_step_form {
+    background: #f6f9fb;
+    display: block;
+    overflow: hidden;
+}
+
+.intl-tel-input{
+    display: block;
+}
+
+.multi_step_form #msform {
+    text-align: center;
+    position: relative;
+    padding-top: 50px;
+    min-height: 820px;
+    max-width: 810px;
+    margin: 0 auto;
+    background: #ffffff;
+    z-index: 1;
+}
+</style>
+
 <main class="main">
     <section class="page-title-bar d-flex flex-wrap justify-content-between">
         <h4 class="page-title font-weight-bold">
@@ -42,7 +79,7 @@
         Add new Guarantor
     </h4>
     <div class="container ext_con">
-    <form class="row trade-lender-form mt-4" class="was-validated" action="{{ url('/createguarantor/guarant') }}" method="post" autocomplete="off" style="background-color: white; border-radius: 8px; margin-bottom: 10px; padding-top: 10px;">
+    <form id="msform" class="row trade-lender-form mt-4" class="was-validated" action="{{ url('/createguarantor/guarant') }}" method="post" autocomplete="off" style="background-color: white; border-radius: 8px; margin-bottom: 10px; padding-top: 10px;">
         @csrf
         <section class="col-md-6 col-sm-6">
             <div class="form-group">
@@ -129,7 +166,7 @@
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="text" class="form-control" id="phoneno" name="phoneno" required>
+                <input id="phone_no" type="tel" class="form-control" name="phoneno" placeholder="+234" required>
             </div>
         </section>
         <div class="container ext_con">
@@ -187,5 +224,8 @@
             });
         });
     </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/12.1.2/js/intlTelInput.js'></script>
+<script src="js/script.js"></script>
    
 @endsection

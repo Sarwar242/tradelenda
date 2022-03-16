@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\API\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
@@ -17,7 +17,7 @@ use Exception;
 
 
 
-class RegisterapiController extends Controller
+class RegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -32,29 +32,13 @@ class RegisterapiController extends Controller
 
     use RegistersUsers;
 
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('guest');
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -66,7 +50,7 @@ class RegisterapiController extends Controller
             //'g-recaptcha-response' => 'required|captcha'
         ]);
     }
-    
+
     protected function create(array $data)
     {
         return User::create([
@@ -77,8 +61,8 @@ class RegisterapiController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
-     
-    
+
+
     public function register(Request $request)
     {
         Log::info($request);
@@ -86,23 +70,27 @@ class RegisterapiController extends Controller
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
         $user->otp = $otp;
+        try {
+            $message = "Hi ".$user->first_name.", Your otp verification code is ".$otp;
+            $receiverNumber=$user->phone_no;
+            $client = new Client(env("TWILIO_SID",'AC2b063bdc70dc88b7cb5f8f8f361bcfe1'), env("TWILIO_TOKEN",'502b336391ee9c9cffdc5a54bdb796cf'));
+            $client->messages->create($receiverNumber, [
+                'from' => env("TWILIO_FROM",'+12532814934'),
+                'body' => $message]);
+        } catch (\Throwable $th) {
+            \Log::error($th);
+        }
         $user->notify(new VerifyOtpMail($otp));
-        
-        $token = $user->createToken('auth_token')->plainTextToken;
-        $user->save();  
-    
-    return response()->json([
-                  'access_token' => $token,
-                       'token_type' => 'Bearer',
-                      
-    ]);
-    
-           return redirect()->route('login')->withAlert('Registered successfully, please check your email and login to verify your email.');
-       
-    
-    
+        $user->save();
+
+        return response()->json([
+                  'success' => true,
+                  'message' => 'Successfully registered! Please log in to verify your account.',
+                  'user' => $user
+                ]);
+
     }
-     
+
     private function randomNDigitNumber($digits)
     {
         $returnString = mt_rand(1, 9);
@@ -144,7 +132,7 @@ return response()->json([
             'message' => 'Tokens Revoked'
         ];
     }
-   
+
     public function me(Request $request)
 {
 return $request->user();

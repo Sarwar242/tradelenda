@@ -76,9 +76,15 @@
             <p>
                 <span class="h6">SECURITY/SUPPORT:</span> Personal guarantee and notarized statement of networth of the MD/CEO.
             </p>
-            <p>
+            <p>@if(auth()->user()->sharia_com == 0)
                 <span class="h6">PRICING:</span> {{$loan->interest}}% monthly interest
             </p>
+                @else
+                <p> 
+                    <span class="h6">PRICING:</span> ₦{{number_format($loan->amount)}}  profit mark-up
+                </p>
+             @endif  
+            
             <p>
                 <span class="h6">PAYABLE TO ACCOUNT:</span> Trade Lenda Com. Ltd.
             </p>

@@ -7,8 +7,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\PasswordResetNotification;
 use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements MustVerifyEmail , JWTSubject
 {
     use HasApiTokens, Notifiable;
 
@@ -20,7 +21,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     protected $fillable = [
         'email', 'phone_no', 'user_image', 'public_id', 'password',
-        'title', 'first_name', 'last_name', 'position', 'share',
+        'title', 'first_name', 'last_name', 'position', 'share', 'otp',
         'dob', 'gender', 'bvn', 'id_type', 'id_num', 'director', 'secretary',
         'address', 'country_id', 'state_id', 'city_id', 'residential_status', 'marital_status',
         'wdymtta', 'dependents', 'edu_level', 'business_type', 'business_name',
@@ -40,7 +41,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token', 'otp',
     ];
 
     /**
@@ -92,5 +93,20 @@ class User extends Authenticatable implements MustVerifyEmail
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new PasswordResetNotification($token));
+    }
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    /**
+     * Return a key value array, containing any custom claims to be added to the JWT.
+     *
+     * @return array
+     */
+    public function getJWTCustomClaims()
+    {
+        return [];
     }
 }

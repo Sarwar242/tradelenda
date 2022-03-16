@@ -23,7 +23,7 @@ class AccountController extends Controller
      public function acctview(){
         $accdata =auth()->user();
         if(is_null(auth()->user()->user_image)){
-            return redirect()->route('editprofile.page');
+            return redirect()->route('profile.page');
         }else{
             return view('pages.account')->with('accdata',$accdata);
         }
@@ -177,6 +177,9 @@ class AccountController extends Controller
             'tin'                 => 'nullable|string',
             'b_id_type'           => 'nullable|string',
             'b_id_num'            => 'nullable|string',
+            'women_led'           => 'nullable|boolean',
+            'sharia_com'          => 'nullable|boolean',
+
         ]);
 
         $user = User::findOrFail(Auth::id());
@@ -195,7 +198,7 @@ class AccountController extends Controller
             $user->rc_num = "";
         else
             $user->rc_num =$request->rc_num;
-            
+
         $user->establishment_date =$request->establishment_date;
         $user->business_address =$request->business_address;
         $user->b_country_id =$request->b_country;
@@ -216,6 +219,8 @@ class AccountController extends Controller
             $user->tin = $request->tin;
         $user->b_id_type =$request->b_id_type;
         $user->b_id_num =$request->b_id_num;
+        $user->women_led =$request->women_led;
+        $user->sharia_com =$request->sharia_com;
 
 
 

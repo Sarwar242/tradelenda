@@ -41,6 +41,14 @@ return [
 
     'debug' => env('APP_DEBUG', false),
 
+     /**
+         * Debug Blacklist
+         */
+        'debug_blacklist' => [
+            '_COOKIE' => array_keys($_COOKIE),
+            '_SERVER' => array_keys($_SERVER),
+            '_ENV' => array_keys($_ENV),
+        ],
     /*
     |--------------------------------------------------------------------------
     | Application URL
@@ -182,7 +190,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
+        Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
 
     ],
 
@@ -238,7 +246,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Helper' => 'App\Helpers\Helper',
-
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
 
     ],
 

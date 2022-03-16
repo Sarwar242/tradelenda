@@ -12,6 +12,7 @@ use Illuminate\Support\Str;
 use App\Notifications\VerifyOtpMail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Twilio\Rest\Client;
 use Socialite;
 use Exception;
 
@@ -88,10 +89,21 @@ class RegisterController extends Controller
         $otp=self::randomNDigitNumber(6);
         $this->validator($request->all())->validate();
         $user = $this->create($request->all());
+        try {
+            $message = "Hi ".$user->first_name.", Your otp verification code is ".$otp;
+            $receiverNumber=$user->phone_no;
+            $client = new Client(env("TWILIO_SID",'AC2b063bdc70dc88b7cb5f8f8f361bcfe1'), env("TWILIO_TOKEN",'502b336391ee9c9cffdc5a54bdb796cf'));
+            $client->messages->create($receiverNumber, [
+                'from' => env("TWILIO_FROM",'+12532814934'),
+                'body' => $message]);
+        } catch (\Throwable $th) {
+            \Log::error($th);
+        }
         $user->otp = $otp;
         $user->save();
         $user->notify(new VerifyOtpMail($otp));
-        return redirect()->route('login')->withAlert('Registered successfully, please check your email and login to verify your email.');
+        // dd($client);
+        return redirect()->route('login')->withAlert('Registered successfully, please check your email or phone and login to verify.');
     }
 
 
@@ -108,7 +120,7 @@ class RegisterController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-   
+
     public function handleProviderCallback()
     {
         try {

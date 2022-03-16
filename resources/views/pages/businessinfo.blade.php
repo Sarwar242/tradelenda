@@ -270,6 +270,28 @@
                                 @endif>Agency Banking</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="women_led">Is your business Women led?</label>
+                        <select class="form-control" id="women_led" name="women_led">
+                            <option value=""></option>
+                            <option value="1" @if ($user->women_led == 1) selected
+                                @endif>Yes</option>
+                            <option value="0" @if ($user->women_led == 0) selected
+                                @endif>No</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sharia_com">Is your business Sharia compliant?</label>
+                        <select class="form-control" id="sharia_com" name="sharia_com">
+                            <option value=""></option>
+                            <option value="1" @if ($user->sharia_com == 1) selected
+                                @endif>Yes</option>
+                            <option value="0" @if ($user->sharia_com == 0) selected
+                                @endif>No</option>
+                        </select>
+                    </div>
                 </section>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 div2">
