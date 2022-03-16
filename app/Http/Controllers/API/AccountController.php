@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -13,7 +13,7 @@ use Validator;
 
 
 
-class AccountapiController extends Controller
+class AccountController extends Controller
 {
     public function acct(){
 
@@ -113,43 +113,18 @@ class AccountapiController extends Controller
         $user->wdymtta =$request->wdymtta;
         $user->dependents =$request->dependents;
         $user->edu_level =$request->edu_level;
-
-
-        /* $user->business_type =$request->business_type;
-        $user->business_name =$request->business_name;
-        $user->director =$request->director;
-        $user->secretary =$request->secretary;
-        $user->registered =$request->registered;
-        $user->rc_num =$request->rc_num;
-        $user->establishment_date =$request->establishment_date;
-        $user->business_address =$request->business_address;
-        $user->b_country_id =$request->b_country;
-        $user->b_state_id =$request->b_state;
-        $user->b_city_id =$request->b_city;
-        $user->b_wdymtta =$request->b_wdymtta;
-        $user->owned_or_rented =$request->owned_or_rented;
-        $user->outlets =$request->outlets;
-        $user->total_employees = $request->total_employees;
-        $user->sales_method =$request->sales_method;
-        $user->industry =$request->industry;
-        $user->monthly_sales =$request->monthly_sales;
-        $user->monthly_expenses =$request->monthly_expenses;
-        $user->business_duration =$request->business_duration;
-        $user->tin =$request->tin;
-        $user->b_id_type =$request->b_id_type;
-        $user->b_id_num =$request->b_id_num;
-        $user->bank_name =$request->bank_name;
-        $user->bank_account_name =$request->bank_account_name;
-        $user->bank_account_number =$request->bank_account_number;
-        $user->has_online_banking =$request->has_online_banking;
-        $user->last_loan_period =$request->last_loan_period;
-        $user->loan_amount =$request->loan_amount; */
         $user->save();
-        // dd($user);
+        $verified = false;
+        if(!is_null($user->email_verified_at)){
+            $verified=true;
+        }
+        $response = [
+            'success' => true,
+            'verified' => $verified,
+            'user' => $user,
+        ];
+        return response($response, 200);
 
-        return redirect()->route('profile.page')->with('success','Account has been successfully Updated!');
-
-        //   return response()->json(['error'=>$validator->errors()->all()]);
     }
 
     public function update(Request $request){
@@ -195,7 +170,7 @@ class AccountapiController extends Controller
             $user->rc_num = "";
         else
             $user->rc_num =$request->rc_num;
-            
+
         $user->establishment_date =$request->establishment_date;
         $user->business_address =$request->business_address;
         $user->b_country_id =$request->b_country;

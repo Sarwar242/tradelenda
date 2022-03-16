@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\VerifiesEmails;
@@ -12,41 +12,9 @@ use Twilio\Rest\Client;
 
 class VerificationController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Email Verification Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling email verification for any
-    | user that recently registered with the application. Emails may also
-    | be re-sent if the user didn't receive the original email message.
-    |
-    */
 
-    use VerifiesEmails;
-
-    /**
-     * Where to redirect users after verification.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
-    }
-
-
-    public function resend_code(){
-        $user = auth()->user();
+    public function resend_code(Request $request){
+        $user = auth('api')->user();
         $otp=self::randomNDigitNumber(6);
         $user->otp =$otp;
         $user->save();
@@ -63,12 +31,21 @@ class VerificationController extends Controller
 
 
         $user->notify(new VerifyOtpMail($otp));
-        return back()->withResent('Verification code sent to your mail and phone, please enter the code to verify.');
+        $verified = false;
+        if(!is_null($user->email_verified_at)){
+            $verified=true;
+        }
+        $response = [
+            'success' => true,
+            'verified' => $verified,
+            'user' => $user,
+        ];
+        return response($response, 201);
     }
 
 
     public function verify_code(Request $request){
-        $user = auth()->user();
+        $user = auth('api')->user();
         $this->validate($request, [
             'code'=>'required|numeric|digits_between:5,10',
            ]);
@@ -82,12 +59,27 @@ class VerificationController extends Controller
             }catch(\Exception $e){
                 \Log::warning("Notification mail wasn't Sent. Exception: ".$e);
             }
-            return redirect()->route('account.page')->withStatus('Congratulations, You have successfully verified your contact.');
+            $response = [
+                'success' => true,
+                'verified' => true,
+                'user' => $user,
+            ];
+            return response($response, 201);
         }
-        return back()->withFailed('Sorry, The code you entered seems to be incorrect, Please enter the correct code.');
+        $verified = false;
+        $message="Invalid OTP!";
+        if(!is_null($user->email_verified_at)){
+            $verified=true;
+            $message="Already verified!";
+        }
+        $response = [
+            'success' => false,
+            'verified' => $verified,
+            'message' => $message,
+            'user' => $user,
+        ];
+        return response($response, 400);
     }
-
-
 
     private function randomNDigitNumber($digits)
     {

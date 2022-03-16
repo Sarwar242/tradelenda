@@ -43,6 +43,11 @@ class Authenticate extends Middleware
                 return route('admin.login');
             }
             return route('login');
+        }else{
+            return response()->json([
+                'success'=>false,
+                'message'=>'Unauthorized'
+            ],401);
         }
     }
 }

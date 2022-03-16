@@ -12,25 +12,39 @@
     </section>
 
     <section class="loan-view-title-bar page-title-bar d-flex flex-wrap justify-content-between">
-        <h4 class="page-title font-weight-bold">
+        {{-- <h4 class="page-title font-weight-bold">
             <i class="fa fa-navicon pr-2 d-lg-none" style="cursor:pointer" onclick="openNav()"></i> Offer Letter
-        </h4>
+        </h4> --}}
     </section>
 
-    <div class="row no-gutters" id="loanOfferLetter">
-        <section class="col-md-10">
+    <div class="container-fluid" id="loanOfferLetter">
+        <div class="row" style="background-color: white;padding-left:0px">
+            <div style="width: 85%; margin-right:auto; margin-left:auto; margin-top:40px">
+        <section class="">
+            <div class="brand" style="float:right" >
+                <img src="https://res.cloudinary.com/trade-lenda/image/upload/v1628132872/landing_page_pic/Group_11434_2_umfio2.png" class="img-fluid" alt="Tradelenda Logo" style="display: inline-block;">
+            </div>
+       
+        <section class="col-md-10">  
+        <br>
+        <br>
+        <br>
+        <br>
             <h6 class="font-weight-bold">Date: {{$loan->created_at->format('d M Y')}}</h6>
-            <h5 class="font-weight-bold mt-4">{{$loan->user->position}}</h5>
+            <h5 class="font-weight-bold ">The {{$loan->user->position}}</h5>
+            <h6 class="font-weight-bold ">{{$loan->user->business_name}}</h6>
             <pre>
                 {{$loan->user->business_address}}
             </pre>
             <h6 class="font-weight-bold">Attention: {{$loan->user->director}}, MD/CEO</h6>
             <p class="mt-3">Dear Sir,</p>
             <h6 class="font-weight-bold mt-3">
-                OFFER FOR {{strtoupper($loan->reason)}} OF N{{$loan->amount}} (@php $f = new NumberFormatter("en", \NumberFormatter::SPELLOUT);
-                        $f->setTextAttribute(\NumberFormatter::DEFAULT_RULESET, "%spellout-numbering-verbose");
-                        echo strtoupper($f->format($loan->amount));
-                @endphp ONLY)
+                OFFER FOR {{strtoupper($loan->reason)}} FINANCE FACILITY OF N{{number_format($loan->amount)}} 
+                (@php $f = new NumberFormatter("en", \NumberFormatter::SPELLOUT);
+                $f->setTextAttribute(\NumberFormatter::DEFAULT_RULESET, "%spellout-numbering-verbose");
+                echo strtoupper($f->format($loan->amount));
+        @endphp ONLY)       
+               
             </h6>
             <p>
                 Sequel to your application for a working capital facility, we are pleased to inform you that the Manager of Tradelenda has approved the request under the following terms and conditions:
@@ -42,13 +56,13 @@
                 <span class="h6">LENDER:</span> Tradelenda Limited
             </p>
             <p>
-                <span class="h6">BORROWER:</span> {{Str::ucfirst($loan->user->business_name)}}
+                <span class="h6">BORROWER:</span> {{$loan->user->business_name}}
             </p>
             <p>
                 <span class="h6">AMOUNT:</span> ₦{{number_format($loan->amount)}}
             </p>
             <p>
-                <span class="h6">PURPOSE:</span> {{Str::ucfirst($loan->reason)}}
+                <span class="h6">PURPOSE:</span> {{$loan->reason}}
             </p>
             <p>
                 <span class="h6">TENOR:</span> {{$loan->loan_tenor}}
@@ -62,9 +76,15 @@
             <p>
                 <span class="h6">SECURITY/SUPPORT:</span> Personal guarantee and notarized statement of networth of the MD/CEO.
             </p>
-            <p>
+            <p>@if($loan->user->sharia_com == 0)
                 <span class="h6">PRICING:</span> {{$loan->interest}}% monthly interest
             </p>
+                @else
+                <p> 
+                    <span class="h6">PRICING:</span> ₦{{number_format($loan->amount)}}  profit mark-up
+                </p>
+             @endif  
+            
             <p>
                 <span class="h6">PAYABLE TO ACCOUNT:</span> Trade Lenda Com. Ltd.
             </p>
@@ -129,7 +149,7 @@
                 Yours faithfully,
                 For: <span class="font-weight-bold">Tradelenda</span>
 
-
+                         <b>TRADE LENDA</b>
                 ---------------------------------------
             </pre>
             <h6 class="font-weight-bold text-center mt-4">MEMORANDUM OF ACCEPTANCE</h6>
@@ -138,11 +158,13 @@
             </p>
             <div class="row mt-5 text-center director-signature-block">
                 <section class="col">
-                    <p class="mb-0 font-weight-bold">{{$loan->user->director}}</p>
-                    <h6 class="d-inline font-weight-bold">DIRECTOR</h6>
+                    <p class="mb-0 font-weight-bold answer">{{$loan->user->director}}</p>
+                    ---------------------------------------<br>
+                    <h6 class="d-inline font-weight-bold">DIRECTOR'S SIGNATURE</h6>
                 </section>
                 <section class="col">
                     <p class="mb-0 font-weight-bold">{{$loan->user->secretary}}</p>
+                    ---------------------------------------<br>
                     <h6 class="d-inline font-weight-bold"> DIRECTOR/SECRETARY</h6>
                 </section>
             </div>
@@ -153,16 +175,28 @@
             <form method="POST" action="{{route('letter.acknowledge', $loan->id)}}" class="col-md-5 col-sm-7 px-0">
                 @csrf
                 <div class="custom-control custom-checkbox mb-3 mt-4">
-                    <input type="checkbox" class="custom-control-input" {{$loan->acknowledgement? 'checked':''}} disabled name="acknowledge" id="customCheck">
+                    <input type="checkbox" class="custom-control-input" {{$loan->acknowledgement? 'checked':''}} name="acknowledge" id="customCheck" {{$loan->acknowledgement? 'disabled':''}}>
                     <label class="custom-control-label font-weight-bold" for="customCheck">
-                        ACKNOWLEDGED AND AGREED TO SIGN DOCUMENT
+                        ACKNOWLEDGE AND AGREE TO SIGN DOCUMENT
                     </label>
                 </div>
-                {{-- <button type="submit" class="btn btn-block btn-primary">Submit</button> --}}
+                <button type="submit" class="btn btn-block btn-primary" {{$loan->acknowledgement? 'disabled':''}}>Submit</button>
             </form>
         </section>
     </div>
-
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+<script>
+    //$(".answer").hide();
+$(".custom-control-input").click(function() {
+    if($(this).is(":checked")) {
+        $(".answer").show();
+    } else {
+        $(".answer").show();
+    }
+});
+</script>
 </main>
 
 @endsection
