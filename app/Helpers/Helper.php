@@ -18,6 +18,23 @@ class Helper {
         $score = round ($given * 100 / $total);
         return $score;
     }
-
-
+    public static function getReasons(){
+        return array(
+            'Working Capitals',
+            'LPO',
+            'Pay a Supplier',
+            'Pay Salary',
+            'Expand My Business',
+            'Purchase Inventory',
+            'Purchase Equipment'
+        );
+    }
+    public static function getDurations(){
+        return array(
+            '30 days',
+            '60 days',
+            '90 days',
+            '180 days'
+        );
+    }
 }

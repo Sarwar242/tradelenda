@@ -7,6 +7,9 @@ use App\Http\Controllers\API\Auth\VerificationController;
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\AccountController;
 use App\Http\Controllers\API\LocationController;
+use App\Http\Controllers\API\LoanController;
+use App\Http\Controllers\API\GuarantorController;
+use App\Http\Controllers\API\NotificationController;
 use App\User;
 
 
@@ -39,6 +42,22 @@ Route::group(['middleware' => 'jwt.verify'], function(){
     Route::post('/kyc/personal/update', [AccountController::class, 'personalUpdate']);
     Route::post('/kyc/business/update', [AccountController::class, 'businessUpdate']);
     Route::post('/kyc/financial/update', [AccountController::class, 'financialUpdate']);
+
+    /***** ******************* ***** ****** Loan Requests ****************************** ******************* */
+    Route::get('/loans', [LoanController::class, 'loans']);
+    Route::get('/loan', [LoanController::class, 'show']);
+    Route::post('/loan/request', [LoanController::class, 'store']);
+
+    /***** ******************* ***** ****** Guarantor ****************************** ******************* */
+    Route::get('/guarantors', [GuarantorController::class, 'index']);
+    Route::get('/guarantor', [GuarantorController::class, 'show']);
+    Route::post('/guarantor/create', [GuarantorController::class, 'store']);
+
+    /***** ******************* ***** ****** Guarantor ****************************** ******************* */
+    Route::get('notifications', [NotificationController::class, 'index']);
+    Route::post('read-notification',  [NotificationController::class, 'readOne']);
+    Route::post('delete-notification',  [NotificationController::class, 'delete']);
+    Route::get('read-notifications', [NotificationController::class, 'readall']);
 });
 
 

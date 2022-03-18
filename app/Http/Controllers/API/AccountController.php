@@ -29,6 +29,7 @@ class AccountController extends Controller
             'dob'                 => 'nullable|string',
             'gender'              => 'nullable|string',
             'bvn'                 => 'nullable|string',
+            'is_valid_bvn'        => 'nullable|boolean',
             'id_type'             => 'nullable|string',
             'id_num'              => 'nullable|string',
             'address'             => 'nullable|string',
@@ -121,7 +122,6 @@ class AccountController extends Controller
             'tin'                 => 'nullable|string',
             'b_id_type'           => 'nullable|string',
             'b_id_num'            => 'nullable|string',
-            'customer_id'         => 'nullable|string',
             'seal'                => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
             'cac7'                => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
             'cac2'                => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
@@ -131,9 +131,6 @@ class AccountController extends Controller
         $user = auth('api')->user();
         if(request()->has('email'))
             $user->email =$request->email;
-        if(request()->has('name'))
-            $user->email =$request->email;
-
 
         $user->business_type =$request->business_type;
         $user->business_name =$request->business_name;
@@ -231,14 +228,16 @@ class AccountController extends Controller
 
     }
 
-    public function financialupdate(Request $request){
+    public function financialUpdate(Request $request){
         $this->validate($request,[
-            'bank_name'           => 'nullable|string',
-            'bank_account_name'   => 'nullable|string',
-            'bank_account_number' => 'nullable|string',
-            'has_online_banking'  => 'nullable|boolean',
-            'last_loan_period'    => 'nullable|string',
-            'loan_amount'         => 'nullable|numeric',
+            'bank_name'                => 'nullable|string',
+            'customer_id'              => 'nullable|string',
+            'bank_account_name'        => 'nullable|string',
+            'bank_account_number'      => 'nullable|string',
+            'has_online_banking'       => 'nullable|boolean',
+            'taken_loan_in_12_months'  => 'nullable|string',
+            'loan_amount'              => 'nullable|numeric',
+            'bank_statement'           => 'nullable|file|mimes:pdf,jpg,png,jpeg|max:5000',
         ]);
 
         $user = User::findOrFail(Auth::id());
@@ -249,17 +248,33 @@ class AccountController extends Controller
 
 
         $user->bank_name =$request->bank_name;
+        $user->customer_id =$request->customer_id;
         $user->bank_account_name =$request->bank_account_name;
         $user->bank_account_number =$request->bank_account_number;
         $user->has_online_banking =$request->has_online_banking;
-        $user->last_loan_period =$request->last_loan_period;
+        $user->last_loan_period =$request->taken_loan_in_12_months;
         $user->loan_amount =$request->loan_amount;
         $user->save();
         // dd($user);
 
-        return redirect()->route('profile.page')->with('success','Account has been successfully Updated!');
+        try {
+            if ($request->hasFile('bank_statement')) {
+                $path = $request->file('bank_statement')->store('bank_statement', 's3');
 
-        //   return response()->json(['error'=>$validator->errors()->all()]);
+               Storage::disk('s3')->setVisibility($path, 'public');
+                  $user->public_id_bank =basename($path);
+                   $user->bank_statement=Storage::disk('s3')->url($path);
+                   $user->save();
+           }
+        } catch (\Throwable $th) {
+            info($th);
+        }
+        $response = [
+            'success' => true,
+            'verified' => $user->email_verified_at? true:false,
+            'user' => $user,
+        ];
+        return response($response, 200);
     }
 
     public function propic(Request $request){

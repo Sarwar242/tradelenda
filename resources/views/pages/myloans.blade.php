@@ -29,7 +29,7 @@
         <p style="padding: 5px 15px; color: white; font-size: 0.75rem;">Your profile is incomplete. <a href="{{url('/profile')}}" id="dashb_link">Click to complete your profile</a></p>
     </div>
 @else
-@endif   
+@endif
 </div>
    <main class="main">
 
@@ -47,7 +47,7 @@
         </button>
             @elseif(empty(Auth::user()->bvn) || empty(Auth::user()->business_address)|| empty(Auth::user()->bank_name)|| empty(Auth::user()->customer_id))
 
-                @else
+            @else
                 <button class="btn btn-primary" onclick="window.location.href='/request/loan'"  >
                     New Loan Request
                 </button>
